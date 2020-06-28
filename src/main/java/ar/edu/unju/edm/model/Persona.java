@@ -3,10 +3,11 @@ package ar.edu.unju.edm.model;
 import java.io.Serializable;
 
 public class Persona implements Serializable{
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6333695497032013128L;
 	/**
 	 * 
 	 */

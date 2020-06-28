@@ -30,7 +30,7 @@ public class TrabajoFinalGrupo1PvedmApplication implements CommandLineRunner {
 		usuario.setPassword("13013");
 		usuario.setTipoUsuario("BD");
 		
-		usuarioService.guardar();
+		usuarioService.crear(usuario);
 		
 		persona.setApellido("Cruz");
 		persona.setNombres("Daniela");

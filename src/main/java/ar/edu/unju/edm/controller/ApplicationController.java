@@ -28,7 +28,7 @@ public class ApplicationController {
 	@PostMapping ("/formulario")
 	public String crearUsuario(@ModelAttribute("usuarioDelForm") Usuario usuario, ModelMap model) {
 		try {
-			usuarioService.crear(usuario);
+			usuarioService.guardar(usuario);
 			model.addAttribute("usuarioDelForm", new Usuario());
 			model.addAttribute("listTab", "active");
 		}catch (Exception e) {

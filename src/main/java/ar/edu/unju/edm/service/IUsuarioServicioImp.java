@@ -1,51 +1,52 @@
 package ar.edu.unju.edm.service;
 
-import java.awt.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.model.Usuario;
-import ar.edu.unju.edm.repository.IUsuario;
+import ar.edu.unju.edm.repository.IUsuarioRepository;
+
 
 @Service
-public class UsuarioServiciolmp implements IUsuarioService {
-
+public class IUsuarioServicioImp implements IUsuarioService {
 	@Autowired
-	 IUsuario iusuario;
+	IUsuarioRepository iUsuario;
 	
 	@Override
-	public void crear(Usuario unUsuario) {
+	public void guardar(Usuario unUsuario) {
 		// TODO Auto-generated method stub
-		System.out.println(unUsuario.getApellidoReal());
-		iusuario.guardar();
+		iUsuario.save(unUsuario);
 	}
-
 
 	@Override
 	public void eliminar() {
 		// TODO Auto-generated method stub
-		iusuario.eliminar();
+		
 	}
 
 	@Override
 	public Usuario modificar() {
 		// TODO Auto-generated method stub
-		Usuario usuario = iusuario.modificar();
-		return usuario;
-	}
-
-	@Override
-	public List Listar() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 	@Override
-	public Optional<Usuario> encontrarUsuario(Long id) {
+	public Optional<Usuario> encontrarUsuario(Long idusuario) {
 		// TODO Auto-generated method stub
-		return null;
+		Optional<Usuario> UsuarioEncontrado = iUsuario.findById(idusuario);
+		return UsuarioEncontrado;
 	}
+
+	@Override
+	public Iterable<Usuario> listarUsuario() {
+		// TODO Auto-generated method stub
+		return iUsuario.findAll();
+	}
+	
+	
 
 }

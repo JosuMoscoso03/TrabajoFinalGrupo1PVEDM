@@ -2,6 +2,17 @@ package ar.edu.unju.edm.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name = "Usuario")
 public class Usuario implements Serializable{
 	/**
 	 * 
@@ -10,12 +21,21 @@ public class Usuario implements Serializable{
 	/**
 	 * 
 	 */
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
+	@GenericGenerator(name="native", strategy="native")
+	private Long idUsuario; 
+	@Column
 	String nombreUsuario;
+	@Column
 	String password;
+	@Column
 	String nombreReal;
+	@Column
 	String apellidoReal;
+	@Column
 	String tipoUsuario;
+
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub

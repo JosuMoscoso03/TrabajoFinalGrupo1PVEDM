@@ -30,7 +30,7 @@ public class RegistroTracking implements Serializable {
 	@GenericGenerator(name="native", strategy="native")
 	Long idRegistro;
 	@Column
-	List<Persona> personas;
+	List<ValidarCondicionSanitaria> personas;
 	@Column 
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	LocalDateTime fechaHora;
@@ -43,7 +43,7 @@ public class RegistroTracking implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public RegistroTracking(LocalDateTime fechaHora, Barrio localidad, List<Persona> personas,
+	public RegistroTracking(LocalDateTime fechaHora, Barrio localidad, List<ValidarCondicionSanitaria> personas,
 			String detalleLugarRegistro) {
 		super();
 		this.fechaHora = fechaHora;
@@ -109,10 +109,10 @@ public class RegistroTracking implements Serializable {
 	public void setLocalidad(Barrio localidad) {
 		this.localidad = localidad;
 	}
-	public List<Persona> getPersonas() {
+	public List<ValidarCondicionSanitaria> getPersonas() {
 		return personas;
 	}
-	public void setPersonas(List<Persona> personas) {
+	public void setPersonas(List<ValidarCondicionSanitaria> personas) {
 		this.personas = personas;
 	}
 	public String getDetalleLugarRegistro() {

@@ -11,7 +11,7 @@ import ar.edu.unju.edm.service.IPersonaService;
 import ar.edu.unju.edm.service.IUsuarioService;
 
 @SpringBootApplication
-public class TrabajoFinalGrupo1PvedmApplication implements CommandLineRunner {
+public class TrabajoFinalGrupo1PvedmApplication {
 	@Autowired
 	IUsuarioService usuarioService;
 	IPersonaService personaService;
@@ -21,25 +21,5 @@ public class TrabajoFinalGrupo1PvedmApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(TrabajoFinalGrupo1PvedmApplication.class, args);
 	}
-	@Override
-	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		usuario.setApellidoReal("Cruz");
-		usuario.setNombreReal("Daniela");
-		usuario.setNombreUsuario("dani13");
-		usuario.setPassword("13013");
-		usuario.setTipoUsuario("BD");
-		
-		usuarioService.guardar(usuario);
-		
-		persona.setApellido("Cruz");
-		persona.setNombres("Daniela");
-		persona.setNacionalidad("argentina");
-		persona.setDocumento("13013345");
-		
-		personaService.guardar(persona);
-		
-	}
-	
 
 }

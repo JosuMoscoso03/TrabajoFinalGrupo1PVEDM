@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity 
-@Table (name = "Persona")
+
 public class Persona implements Serializable{
 	/**
 	 * 
@@ -45,6 +47,12 @@ public class Persona implements Serializable{
 		this.nacionalidad = nacionalidad;
 	}
 
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getDocumento() {
 		return documento;
 	}

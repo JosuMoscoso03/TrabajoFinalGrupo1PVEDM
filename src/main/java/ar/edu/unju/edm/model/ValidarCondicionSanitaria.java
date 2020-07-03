@@ -7,12 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
-@Table(name="condicionSanitaria")
 
 public class ValidarCondicionSanitaria implements Serializable{
 	/**
@@ -25,8 +28,9 @@ public class ValidarCondicionSanitaria implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native", strategy="native")
-	long codValidacion;
-	@Column
+	private  Long id;
+	@ManyToOne
+	@JoinColumn (name = "personaID")
 	Persona persona;
 	@Column
 	boolean usaTapaBoca;
@@ -36,6 +40,9 @@ public class ValidarCondicionSanitaria implements Serializable{
 	boolean poseePermisoCirculacion;
 	@Column
 	boolean estaAcompañado;
+	@ManyToOne
+	@JoinColumn (name = "RegistroID")
+	RegistroTracking registro;
 	public ValidarCondicionSanitaria() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -89,6 +96,19 @@ public class ValidarCondicionSanitaria implements Serializable{
 		if (usaTapaBoca != other.usaTapaBoca)
 			return false;
 		return true;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public RegistroTracking getRegistro() {
+		return registro;
+	}
+	public void setRegistro(RegistroTracking registro) {
+		this.registro = registro;
 	}
 	public Persona getPersona() {
 		return persona;

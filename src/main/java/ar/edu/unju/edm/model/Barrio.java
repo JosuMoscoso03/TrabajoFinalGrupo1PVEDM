@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
-@Table (name="Barrio")
+
 
 public class Barrio implements Serializable {
 	/**
@@ -25,7 +27,7 @@ public class Barrio implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native", strategy="native")
-	Long idBarrio;
+	private Long id;
 	@Column
 	String barrio;
 	public Barrio(String barrio) {
@@ -35,6 +37,13 @@ public class Barrio implements Serializable {
 	public Barrio() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getBarrio() {
 		return barrio;

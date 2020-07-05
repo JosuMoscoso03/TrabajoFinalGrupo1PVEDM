@@ -19,13 +19,13 @@ public class ApplicationController {
 		// TODO Auto-generated constructor stub
 	}
 
-	@GetMapping ("/formulario")
+	@GetMapping ("/formularioUsuario")
 	public String cargarFormulario(Model model) {
 		model.addAttribute("usuarioDelForm", new Usuario());
-		return "index" ;
+		return "usuariForm" ;
 	}
 	
-	@PostMapping ("/formulario")
+	@PostMapping ("/formularioUsuario")
 	public String crearUsuario(@ModelAttribute("usuarioDelForm") Usuario usuario, ModelMap model) {
 		try {
 			usuarioService.guardar(usuario);

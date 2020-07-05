@@ -12,5 +12,5 @@ public interface ITrackingService {
 	public Iterable <RegistroTracking> ListarRegistros();
 	public void eliminar();
 	public RegistroTracking modificar();
-	public Optional<RegistroTracking> encontrarUsuario(Long idRegistro);
+	public Optional<RegistroTracking> encontrarUsuario(Long id);
 }

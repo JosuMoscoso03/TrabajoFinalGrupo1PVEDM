@@ -37,9 +37,9 @@ public class ITrackingServiceImp implements ITrackingService {
 	}
 
 	@Override
-	public Optional<RegistroTracking> encontrarUsuario(Long idRegistro) {
+	public Optional<RegistroTracking> encontrarUsuario(Long id) {
 		// TODO Auto-generated method stub
-		Optional<RegistroTracking> registroEncontrado = iRegistro.findById(idRegistro);
+		Optional<RegistroTracking> registroEncontrado = iRegistro.findById(id);
 		return registroEncontrado;
 	}
 }

@@ -22,7 +22,7 @@ public class ApplicationController {
 	@GetMapping ("/formularioUsuario")
 	public String cargarFormulario(Model model) {
 		model.addAttribute("usuarioDelForm", new Usuario());
-		return "usuariForm" ;
+		return "Usuario" ;
 	}
 	
 	@PostMapping ("/formularioUsuario")
@@ -38,7 +38,7 @@ public class ApplicationController {
 		}
 		//model.addAttribute();
 		//model.addAttribute();
-		return "usuarioForm";
+		return "Usuario";
 	}
 	
 		

@@ -1,5 +1,6 @@
 package ar.edu.unju.edm.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,6 +14,7 @@ import ar.edu.unju.edm.service.IUsuarioService;
 
 @Controller
 public class ApplicationController {
+	@Autowired
 	IUsuarioService usuarioService;
 	public ApplicationController() {
 		super();

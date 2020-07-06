@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 
-public class RegistroTracking implements Serializable {
+public class RegistroTracking implements Serializable{
 	/**
 	 * 
 	 */

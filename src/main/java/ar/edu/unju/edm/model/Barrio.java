@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-public class Barrio implements Serializable {
+public class Barrio implements Serializable{
 	/**
 	 * 
 	 */

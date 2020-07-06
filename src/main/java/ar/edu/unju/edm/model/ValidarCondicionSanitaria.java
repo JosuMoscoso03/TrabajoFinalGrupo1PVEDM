@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-public class ValidarCondicionSanitaria implements Serializable{
+public class ValidarCondicionSanitaria implements Serializable {
 	/**
 	 * 
 	 */

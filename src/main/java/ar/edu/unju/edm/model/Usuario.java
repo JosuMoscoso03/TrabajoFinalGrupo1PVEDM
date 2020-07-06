@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 	/**
 	 * 
 	 */

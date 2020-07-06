@@ -7,12 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity 
-@Table (name = "Persona")
 public class Persona implements Serializable{
 	/**
 	 * 
@@ -37,14 +37,21 @@ public class Persona implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Persona(String documento, String apellido, String nombres, String nacionalidad) {
+	public Persona(Long id, String documento, String apellido, String nombres, String nacionalidad) {
 		super();
+		this.id = id;
 		this.documento = documento;
 		this.apellido = apellido;
 		this.nombres = nombres;
 		this.nacionalidad = nacionalidad;
 	}
-
+    
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getDocumento() {
 		return documento;
 	}

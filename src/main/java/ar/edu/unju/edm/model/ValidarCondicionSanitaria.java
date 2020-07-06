@@ -7,13 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
-@Table(name="condicionSanitaria")
-
 public class ValidarCondicionSanitaria implements Serializable{
 	/**
 	 * 
@@ -25,8 +26,9 @@ public class ValidarCondicionSanitaria implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native", strategy="native")
-	long codValidacion;
-	@Column
+	private Long id;
+	@ManyToOne
+	@JoinColumn (name = "personaId")
 	Persona persona;
 	@Column
 	boolean usaTapaBoca;
@@ -36,19 +38,26 @@ public class ValidarCondicionSanitaria implements Serializable{
 	boolean poseePermisoCirculacion;
 	@Column
 	boolean estaAcompañado;
+	@ManyToOne
+	@JoinColumn (name = "RegistroID")
+	RegistroTracking registro;
 	public ValidarCondicionSanitaria() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ValidarCondicionSanitaria(Persona persona, boolean usaTapaBoca, boolean cumpleTerminacionDNI,
-			boolean poseePermisoCirculacion, boolean estaAcompañado) {
+	
+	public ValidarCondicionSanitaria(Long id, Persona persona, boolean usaTapaBoca, boolean cumpleTerminacionDNI,
+			boolean poseePermisoCirculacion, boolean estaAcompañado, RegistroTracking registro) {
 		super();
+		this.id = id;
 		this.persona = persona;
 		this.usaTapaBoca = usaTapaBoca;
 		this.cumpleTerminacionDNI = cumpleTerminacionDNI;
 		this.poseePermisoCirculacion = poseePermisoCirculacion;
 		this.estaAcompañado = estaAcompañado;
+		this.registro = registro;
 	}
+
 	@Override
 	public String toString() {
 		return "ValidarCondicionSanitaria [persona=" + persona + ", usaTapaBoca=" + usaTapaBoca
@@ -90,6 +99,15 @@ public class ValidarCondicionSanitaria implements Serializable{
 			return false;
 		return true;
 	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Persona getPersona() {
 		return persona;
 	}

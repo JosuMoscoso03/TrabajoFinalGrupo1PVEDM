@@ -7,12 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
-@Table(name = "Usuario")
 public class Usuario implements Serializable{
 	/**
 	 * 
@@ -24,7 +24,7 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native", strategy="native")
-	private Long idUsuario; 
+	private Long id; 
 	@Column
 	String nombreUsuario;
 	@Column
@@ -40,15 +40,25 @@ public class Usuario implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Usuario(String nombreUsuario, String password, String nombreReal, String apellidoReal, String tipoUsuario) {
+	
+	public Usuario(Long id, String nombreUsuario, String password, String nombreReal, String apellidoReal,
+			String tipoUsuario) {
 		super();
+		this.id = id;
 		this.nombreUsuario = nombreUsuario;
 		this.password = password;
 		this.nombreReal = nombreReal;
 		this.apellidoReal = apellidoReal;
 		this.tipoUsuario = tipoUsuario;
 	}
-	
+
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
